@@ -7,12 +7,20 @@
         <table class="table">
           <tbody>
             <tr>
-              <td></td>
+              <td>
+                
+              </td>
               <td>
                 <%= @book.title %>
               </td>
               <td>
                 <%= @book.opinion %>
+              </td>
+              <td>
+                <%= link_to "Edit", edit_book_path(@book), class: "btn-sm btn-success" %>
+              </td>
+              <td>
+                <%= link_to "Destroy", book_path(@book), class: "btn-sm btn-danger", method: :delete, data: {confirm: "削除しますか？"} %>
               </td>
             </tr>
           </tbody>
