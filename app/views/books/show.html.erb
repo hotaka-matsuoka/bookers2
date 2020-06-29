@@ -9,9 +9,17 @@
             <tr>
               <td>
                 <% unless @book.user.image %>
-                  <%= image_tag 'no_image.jpg', size: '50x50' %>  
+                  <%= image_tag 'no_image.jpg', size: '50x50' %>
+                  <% unless current_user == @book.user_id %>
+                    <br> 
+                    <%= link_to "#{@book.user.name}", user_path(@book.user.id) %>
+                  <% end %>
                 <% else %>
                   <%= attachment_image_tag(@book.user, :image, :fill, 50, 50, format: "jpg")%>
+                  <% unless current_user == @book.user_id %>
+                    <br> 
+                    <%= link_to "#{@book.user.name}", user_path(@book.user.id) %>
+                  <% end %>
                 <% end %>
               </td>
               <td>
@@ -20,12 +28,14 @@
               <td>
                 <%= @book.opinion %>
               </td>
-              <td>
-                <%= link_to "Edit", edit_book_path(@book), class: "btn-sm btn-success" %>
-              </td>
-              <td>
-                <%= link_to "Destroy", book_path(@book), class: "btn-sm btn-danger", method: :delete, data: {confirm: "削除しますか？"} %>
-              </td>
+              <% if current_user == @book.user_id %>
+                <td>
+                  <%= link_to "Edit", edit_book_path(@book), class: "btn-sm btn-success" %>
+                </td>
+                <td>
+                  <%= link_to "Destroy", book_path(@book), class: "btn-sm btn-danger", method: :delete, data: {confirm: "削除しますか？"} %>
+                </td>
+              <% end %>
             </tr>
           </tbody>
         </table>
