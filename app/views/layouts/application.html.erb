@@ -10,21 +10,7 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse" >
-      <div class="container">
-        <nav class="nav navbar-nav navbar-left">
-          <span>Bookers</span>
-        </nav>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home" %></li>
-            <li><%= link_to "About" %></li>
-            <li><%= link_to "sign_up" %></li>
-            <li><%= link_to "log_in" %></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <%= render "books/header" %>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,15 @@
+<header class="navbar navbar-fixed-top navbar-inverse" >
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <span>Bookers</span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", books_path, class: "glyphicon glyphicon-home home" %></li>
+        <li><%= link_to "Users", books_path, class: "glyphicon glyphicon-user users" %></li>
+        <li><%= link_to "Books", books_path, class: "glyphicon glyphicon-book books" %></li>
+        <li><%= link_to "log_out", books_path, class: "glyphicon glyphicon-log-out logout" %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
