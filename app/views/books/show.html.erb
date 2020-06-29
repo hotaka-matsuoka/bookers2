@@ -8,7 +8,11 @@
           <tbody>
             <tr>
               <td>
-                
+                <% unless @book.user.image %>
+                  <%= image_tag 'no_image.jpg', size: '50x50' %>  
+                <% else %>
+                  <%= attachment_image_tag(@book.user, :image, :fill, 50, 50, format: "jpg")%>
+                <% end %>
               </td>
               <td>
                 <%= @book.title %>

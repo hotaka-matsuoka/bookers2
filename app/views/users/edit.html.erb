@@ -7,7 +7,11 @@
         <%= f.text_field :name %>
       </div>
       <div class="field">
-        <label for="opinion">Introduction</label>
+        <label for="image">Image</label>
+        <%= f.attachment_field :image %>
+      </div>
+      <div class="field">
+        <label for="introduction">Introduction</label>
         <%= f.text_area :introduction %>
       </div>
       <div class="actions">
