@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'top' => 'top#top'
+  root 'top#top'
   devise_for :users
-  root 'books#index'
   resources :books
   resources :users, only: [:edit, :update]
 end
