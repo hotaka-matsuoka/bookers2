@@ -7,9 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @books = Book.where(params[:user_id])
     @book = Book.find_by(params[:id])
     @user = User.find(params[:id])
+    @books = @user.books
   end
 
   def edit
