@@ -8,14 +8,14 @@
           <tbody>
             <tr>
               <td>
-                <% unless @book.user.image %>
+                <% unless @book.user.profile_image %>
                   <%= image_tag 'no_image.jpg', size: '50x50' %>
                   <% unless current_user == @book.user_id %>
                     <br> 
                     <%= link_to "#{@book.user.name}", user_path(@book.user.id) %>
                   <% end %>
                 <% else %>
-                  <%= attachment_image_tag(@book.user, :image, :fill, 50, 50, format: "jpg")%>
+                  <%= attachment_image_tag(@book.user, :profile_image, :fill, 50, 50, format: "jpg")%>
                   <% unless current_user == @book.user_id %>
                     <br> 
                     <%= link_to "#{@book.user.name}", user_path(@book.user.id) %>
