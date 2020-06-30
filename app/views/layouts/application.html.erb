@@ -11,6 +11,7 @@
 
   <body>
     <%= render "books/header" %>
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>

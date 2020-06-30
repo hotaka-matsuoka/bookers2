@@ -10,6 +10,7 @@ class BooksController < ApplicationController
   end
   
   def create
+    @user = current_user
     @book = Book.create(book_params)
     if @book.save
       flash[:notice] = "Book was successfully created."
@@ -25,12 +26,15 @@ class BooksController < ApplicationController
   end
 
   def edit
+    unless current_user.id == @book.user_id
+      redirect_to books_path
+    end
   end
   
   def update
     if @book.update(book_params)
       flash[:notice] = "Book was successfully updated."  
-      redirect_to books_path
+      redirect_to book_path(@book)
     else
       render :edit
     end
@@ -48,6 +52,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title, :opinion).merge(user_id: current_user.id)
+    params.require(:book).permit(:title, :body).merge(user_id: current_user.id)
   end
 end

@@ -22,7 +22,7 @@
       <i class="col-xs-12 btn btn-default glyphicon glyphicon-wrench"></i>
     <% end %>
   </div>
-  <h2>New Book</h2>
+  <h2>New book</h2>
   <%= form_with(model: @book, local: true) do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
     <div class="field row">
@@ -30,8 +30,8 @@
       <%= f.text_field :title, class: "col-xs-12 book_title" %>
     </div>
     <div class="field row">
-      <label for="opinion">Opinion</label>
-      <%= f.text_area :opinion, class: "col-xs-12 book_body" %>
+      <label for="body">Opinion</label>
+      <%= f.text_area :body, class: "col-xs-12 book_body" %>
     </div>
     <div class="actions row">
       <%= f.submit "Create Book", class: "btn btn-primary col-xs-12" %>
